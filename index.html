@@ -169,37 +169,45 @@
   .acc-block-head .abh-cnt{font-weight:400;color:var(--sub);font-size:12px;margin-left:4px;}
 
   .acc-colhead{
-    display:grid;grid-template-columns:28% 1fr 16%;gap:6px;
+    display:grid;grid-template-columns:minmax(0,26%) minmax(0,1fr) minmax(84px,auto);gap:6px;
     font-size:11px;color:var(--sub);font-weight:600;padding:6px 10px;
   }
   .acc-group{border-radius:10px;overflow:hidden;margin-bottom:4px;}
   .acc-group-row{
-    display:grid;grid-template-columns:28% 1fr 16%;gap:6px;align-items:center;
+    display:grid;grid-template-columns:minmax(0,26%) minmax(0,1fr) minmax(84px,auto);gap:6px;align-items:center;
     padding:10px 10px;background:#f6f4ec;cursor:pointer;transition:background .15s ease;
     border-radius:9px;
   }
   .acc-group-row:hover{background:#f1eddf;}
-  .acc-group-row .agr-name{display:flex;align-items:center;gap:6px;font-weight:700;font-size:13px;}
-  .acc-group-row .agr-arrow{display:inline-block;font-size:10px;color:var(--sub);transition:transform .15s ease;}
+  .acc-group-row .agr-name{display:flex;align-items:center;gap:6px;font-weight:700;font-size:13px;overflow-wrap:anywhere;min-width:0;}
+  .acc-group-row .agr-arrow{display:inline-block;font-size:10px;color:var(--sub);transition:transform .15s ease;flex-shrink:0;}
   .acc-group-row.open .agr-arrow{transform:rotate(90deg);}
-  .acc-group-row .agr-meta{font-size:11.5px;color:var(--sub);}
-  .acc-group-row .agr-amt{text-align:right;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;}
+  .acc-group-row .agr-meta{font-size:11.5px;color:var(--sub);overflow-wrap:anywhere;}
+  .acc-group-row .agr-amt{text-align:right;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;white-space:nowrap;}
   .acc-group-row.in .agr-amt{color:var(--green);}
   .acc-group-row.out .agr-amt{color:var(--red);}
 
   .acc-items{max-height:0;overflow:hidden;transition:max-height .2s ease;}
   .acc-items.open{max-height:2000px;}
   .acc-item-row{
-    display:grid;grid-template-columns:28% 1fr 16%;gap:6px;align-items:center;
+    display:grid;grid-template-columns:minmax(0,26%) minmax(0,1fr) minmax(84px,auto);gap:6px;align-items:center;
     padding:9px 10px 9px 26px;font-size:12.5px;border-bottom:1px solid var(--border);
   }
-  .acc-item-row .ai-vendor{color:var(--ink);font-weight:500;}
+  .acc-item-row .ai-vendor{color:var(--ink);font-weight:500;overflow-wrap:anywhere;}
   .acc-item-row .ai-desc{color:var(--sub);overflow-wrap:anywhere;}
-  .acc-item-row .ai-amt{text-align:right;font-family:'Space Grotesk',sans-serif;font-weight:600;}
+  .acc-item-row .ai-amt{text-align:right;font-family:'Space Grotesk',sans-serif;font-weight:600;white-space:nowrap;}
   .acc-item-row.in .ai-amt{color:var(--green);}
   .acc-item-row.out .ai-amt{color:var(--red);}
 
-  .footnote{font-size:11.5px;color:var(--sub);text-align:center;margin-top:4px;}
+  .footnote{font-size:11.5px;color:var(--sub);text-align:left;margin-top:8px;line-height:1.6;padding:10px 12px;background:#f6f4ec;border-radius:10px;}
+  .footnote-wrap{margin-top:4px;}
+  .footnote-toggle{
+    display:flex;justify-content:space-between;align-items:center;gap:8px;
+    cursor:pointer;font-size:12px;color:var(--sub);padding:8px 12px;
+    background:#f6f4ec;border-radius:10px;user-select:none;transition:background .15s ease;
+  }
+  .footnote-toggle:hover{background:#f1eddf;}
+  .footnote-toggle-btn{font-weight:600;white-space:nowrap;color:var(--ink);}
 
   @media (max-width:760px){
     body{padding:20px 12px 48px;}
@@ -215,7 +223,8 @@
     .company-pair-row,.company-pair-row.two-col{grid-template-columns:1fr;}
     .company-card{padding:14px 16px;}
     .section-title{font-size:13px;}
-    .acc-colhead,.acc-group-row,.acc-item-row{grid-template-columns:26% 1fr 20%;font-size:11.5px;}
+    .acc-colhead,.acc-group-row,.acc-item-row{grid-template-columns:minmax(0,24%) minmax(0,1fr) minmax(78px,auto);gap:5px;font-size:11.5px;}
+    .acc-group-row .agr-amt,.acc-item-row .ai-amt{font-size:12px;}
     .acc-item-row{padding:8px 6px 8px 16px;}
     .acc-group-row{padding:9px 6px;}
     .acct-table-wrap{overflow-x:visible;}
@@ -227,7 +236,8 @@
   @media (max-width:420px){
     .title{font-size:19px;}
     .kpi-strip{grid-template-columns:1fr 1fr;}
-    .acc-colhead,.acc-group-row,.acc-item-row{grid-template-columns:28% 1fr 18%;font-size:11px;}
+    .acc-colhead,.acc-group-row,.acc-item-row{grid-template-columns:minmax(0,25%) minmax(0,1fr) minmax(72px,auto);gap:4px;font-size:11px;}
+    .acc-group-row .agr-amt,.acc-item-row .ai-amt{font-size:11px;}
     .company-card{padding:12px 12px;}
     .acct-table{font-size:8.5px;}
     .acct-table th:first-child,.acct-table td:first-child{font-size:8px;}
@@ -270,7 +280,13 @@
   <div class="section-title">입금상세내역<span class="st-sub" id="detail-date-tag-in">-</span></div>
   <div class="table-card" id="detail-wrap-in"></div>
 
-  <div class="footnote">※ 7/31~8/14, 8/18·8/19 필름(개인)·㈜필름·공명 망원은 실제 계좌 거래내역 기준(그 외 사업장 8/18·8/19와 전 사업장 8/20은 예측치), 8/15~8/20은 예측치를 실제 마감잔고에 연결(8/15~8/17 거래 없음, 8/18~8/20은 최신 자금예상 워크북 버전으로 갱신) · 8/19는 워크북 갱신판으로 카드·현금·기타입금 세부 항목 및 일부 사업장 간 전도금이 재조정됨(마곡 전도금 6,500,000→3,000,000원 등) · 연남점 8/18은 워크북 재확인 결과 누락됐던 SPC 물품대 450,000원(7월분 베이커리 원재료 5차 선결제 건)을 추가 반영(8/18 마감잔고 465,342→15,342원, 8/19·8/20도 함께 갱신) · ㈜필름·공명 망원은 8/18·8/19 실제 거래내역 재확인 결과 기존 예측치와 크게 달라 실거래 기준으로 수정(㈜필름 8/18 마감잔고 3,119,964→834,889원, 공명 망원 8/18 마감잔고 878,285→90,047원 등), 이 과정에서 ㈜교보문고 도서 정산금 248,773,320원이 8/19이 아닌 8/18에 실제 입금·이체된 사실을 확인해 반영 · ㈜필름 8/19 입금전용 계좌는 오전 스윕(약 10시) 이후 늦게 들어온 입금(2,670,230원)이 당일 미이체 상태로 남아 마감(실거래 기준 예외), 8/20은 이 이월분을 포함해 정상 스윕되는 것으로 계획 · 8/20은 당일 계획(전액 예측치)이며 실거래 마감 후 재검증 예정 · 전 구간 입금전용 계좌 잔액을 매일 출금전용 계좌로 자금대체 반영(단, 위 8/19 예외 제외) · ㈜필름 창업진흥원 계좌(32,400원) 별도 포함 · 필름(개인) 계좌별(김상현·김기용) 상세는 8/13까지, 그리고 8/18은 실제 계좌 거래내역 기준(대환대출 원리금 850,000원, 김상현 앞 이체 입금 1,000,000원 등 실거래 반영), 8/19 이후는 입금→신한(79255_김기용), 출금→하나(72104_김상현), 대출이자 출금은 해당 은행 계좌로 배분하는 것을 기본 규칙으로 적용한 예측치(하나 잔액 부족 시 부족분을 신한 잔액에서 전액 대체) · 데이터 범위 7/31~8/20</div>
+  <div class="footnote-wrap">
+    <div class="footnote-toggle" id="footnoteToggle" onclick="toggleFootnote()">
+      <span>※ 데이터 출처 및 반영 방식 안내</span>
+      <span class="footnote-toggle-btn" id="footnoteToggleBtn">내용 보기 ▾</span>
+    </div>
+    <div class="footnote" id="footnoteContent" style="display:none;">※ 7/31~8/14, 8/18·8/19 필름(개인)·㈜필름·공명 망원은 실제 계좌 거래내역 기준(그 외 사업장 8/18·8/19와 전 사업장 8/20은 예측치), 8/15~8/20은 예측치를 실제 마감잔고에 연결(8/15~8/17 거래 없음, 8/18~8/20은 최신 자금예상 워크북 버전으로 갱신) · 8/19는 워크북 갱신판으로 카드·현금·기타입금 세부 항목 및 일부 사업장 간 전도금이 재조정됨(마곡 전도금 6,500,000→3,000,000원 등) · 연남점 8/18은 워크북 재확인 결과 누락됐던 SPC 물품대 450,000원(7월분 베이커리 원재료 5차 선결제 건)을 추가 반영(8/18 마감잔고 465,342→15,342원, 8/19·8/20도 함께 갱신) · ㈜필름·공명 망원은 8/18·8/19 실제 거래내역 재확인 결과 기존 예측치와 크게 달라 실거래 기준으로 수정(㈜필름 8/18 마감잔고 3,119,964→834,889원, 공명 망원 8/18 마감잔고 878,285→90,047원 등), 이 과정에서 ㈜교보문고 도서 정산금 248,773,320원이 8/19이 아닌 8/18에 실제 입금·이체된 사실을 확인해 반영 · ㈜필름 8/19 입금전용 계좌는 오전 스윕(약 10시) 이후 늦게 들어온 입금(2,670,230원)이 당일 미이체 상태로 남아 마감(실거래 기준 예외), 8/20은 이 이월분을 포함해 정상 스윕되는 것으로 계획 · 8/20은 당일 계획(전액 예측치)이며 실거래 마감 후 재검증 예정 · 전 구간 입금전용 계좌 잔액을 매일 출금전용 계좌로 자금대체 반영(단, 위 8/19 예외 제외) · ㈜필름 창업진흥원 계좌(32,400원) 별도 포함 · 필름(개인) 계좌별(김상현·김기용) 상세는 8/13까지, 그리고 8/18은 실제 계좌 거래내역 기준(대환대출 원리금 850,000원, 김상현 앞 이체 입금 1,000,000원 등 실거래 반영), 8/19 이후는 입금→신한(79255_김기용), 출금→하나(72104_김상현), 대출이자 출금은 해당 은행 계좌로 배분하는 것을 기본 규칙으로 적용한 예측치(하나 잔액 부족 시 부족분을 신한 잔액에서 전액 대체) · 데이터 범위 7/31~8/20</div>
+  </div>
 
 </div>
 
@@ -352,6 +368,13 @@ function toggleAcct(key){
   else openAcctCards.add(key);
   renderCompanyGrid('grid-film', FILM_GROUP);
   renderCompanyGrid('grid-gm', GM_GROUP);
+}
+
+let footnoteOpen = false;
+function toggleFootnote(){
+  footnoteOpen = !footnoteOpen;
+  document.getElementById('footnoteContent').style.display = footnoteOpen ? 'block' : 'none';
+  document.getElementById('footnoteToggleBtn').textContent = footnoteOpen ? '내용 숨기기 ▴' : '내용 보기 ▾';
 }
 
 function renderCompanyGrid(elId, group){
