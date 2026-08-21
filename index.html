@@ -123,6 +123,7 @@
   .acct-table td:has(.acct-alias){white-space:normal;line-height:1.6;}
   .acct-table td.neg{color:var(--red);}
   .acct-table td.acct-in{color:var(--green);}
+  .acct-table td.acct-out{color:var(--red);}
   .acct-alias{font-size:9px;color:var(--gold-deep);background:var(--gold-soft);padding:1px 4px;border-radius:6px;margin-left:3px;font-weight:600;white-space:nowrap;display:inline-block;margin-top:2px;}
   .no-acct-note{font-size:10.5px;color:var(--sub);font-style:italic;margin-top:6px;}
 
@@ -417,7 +418,7 @@ function shortAlias(alias){ return ALIAS_SHORT[alias] || alias; }
           <span class="acct-toggle-icon">▼</span>
         </div>
         <div class="acct-table-wrap" style="display:${isOpen?'block':'none'}"><table class="acct-table">
-          <thead><tr><th>계좌번호</th><th>전일잔액</th><th>금일입금</th><th>금일출금</th><th>금일잔액</th></tr></thead>
+          <thead><tr><th>계좌번호</th><th>전일잔액</th><th>입금</th><th>출금</th><th>잔액</th></tr></thead>
           <tbody>
             ${accounts.map(a=>{
               const d = a.byDate[currentDate];
@@ -428,7 +429,7 @@ function shortAlias(alias){ return ALIAS_SHORT[alias] || alias; }
                 <td>${a.bank}(${shortAlias(a.alias)}_${a.acct.replace(/-/g,'').slice(-5)})</td>
                 <td>${fmtNum(d.prev)}</td>
                 <td class="${d.in? 'acct-in':''}">${inCell}</td>
-                <td>${d.out? fmtNum(d.out):'-'}</td>
+                <td class="${d.out? 'acct-out':''}">${d.out? fmtNum(d.out):'-'}</td>
                 <td class="${an?'neg':''}">${fmtNum(d.bal)}</td>
               </tr>`;
             }).join('')}
