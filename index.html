@@ -110,18 +110,20 @@
   .acct-toggle-icon{font-size:8px;color:var(--sub);transition:transform .15s ease;}
   .acct-toggle.open .acct-toggle-icon{transform:rotate(180deg);}
 
-  .acct-table-wrap{overflow-x:auto;}
-  .acct-table{width:100%;border-collapse:collapse;font-size:10.5px;margin-top:4px;min-width:380px;table-layout:fixed;}
-  .acct-table th{color:var(--sub);font-weight:600;font-size:9.5px;padding:5px 3px;text-align:right;border-bottom:1px solid var(--border);white-space:nowrap;}
-  .acct-table th:first-child,.acct-table td:first-child{text-align:left;width:19%;padding-right:4px;font-size:9.5px;}
-  .acct-table th:nth-child(2),.acct-table td:nth-child(2){width:20%;padding-left:2px;}
+  .acct-table-wrap{overflow-x:auto;position:relative;-webkit-overflow-scrolling:touch;}
+  .acct-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:4px;min-width:0;table-layout:fixed;}
+  .acct-table th{color:var(--sub);font-weight:600;font-size:11.5px;padding:4px 2px;text-align:right;border-bottom:1px solid var(--border);white-space:nowrap;}
+  .acct-table th:first-child,.acct-table td:first-child{text-align:left;width:28%;padding-right:0;white-space:nowrap;}
+  .acct-table td:first-child{font-size:10px;}
+  .acct-table th:nth-child(2),.acct-table td:nth-child(2){width:16%;padding-left:1px;text-align:right;}
   .acct-table th:nth-child(3),.acct-table td:nth-child(3),
-  .acct-table th:nth-child(4),.acct-table td:nth-child(4){width:21%;}
-  .acct-table th:nth-child(5),.acct-table td:nth-child(5){width:17%;}
-  .acct-table td{padding:5px 3px;text-align:right;border-bottom:1px solid #f2efe6;white-space:nowrap;font-variant-numeric:tabular-nums;}
+  .acct-table th:nth-child(4),.acct-table td:nth-child(4){width:19%;padding-left:1px;padding-right:1px;text-align:right;}
+  .acct-table th:nth-child(5),.acct-table td:nth-child(5){width:18%;padding-left:1px;text-align:right;}
+  .acct-table td{padding:4px 2px;text-align:right;border-bottom:1px solid #f2efe6;white-space:nowrap;font-variant-numeric:tabular-nums;}
+  .acct-table td:has(.acct-alias){white-space:normal;line-height:1.6;}
   .acct-table td.neg{color:var(--red);}
   .acct-table td.acct-in{color:var(--green);}
-  .acct-alias{font-size:9px;color:var(--gold-deep);background:var(--gold-soft);padding:1px 4px;border-radius:6px;margin-left:3px;font-weight:600;white-space:nowrap;}
+  .acct-alias{font-size:9px;color:var(--gold-deep);background:var(--gold-soft);padding:1px 4px;border-radius:6px;margin-left:3px;font-weight:600;white-space:nowrap;display:inline-block;margin-top:2px;}
   .no-acct-note{font-size:10.5px;color:var(--sub);font-style:italic;margin-top:6px;}
 
   .entity-tabs{display:flex;gap:6px;flex-wrap:wrap;}
@@ -182,7 +184,7 @@
   .acc-group-row .agr-name{display:flex;align-items:center;gap:6px;font-weight:700;font-size:13px;overflow-wrap:anywhere;min-width:0;}
   .acc-group-row .agr-arrow{display:inline-block;font-size:10px;color:var(--sub);transition:transform .15s ease;flex-shrink:0;}
   .acc-group-row.open .agr-arrow{transform:rotate(90deg);}
-  .acc-group-row .agr-meta{font-size:11.5px;color:var(--sub);overflow-wrap:anywhere;}
+  .acc-group-row .agr-meta{font-size:11.5px;color:var(--sub);overflow-wrap:anywhere;padding-left:2em;}
   .acc-group-row .agr-amt{text-align:right;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;white-space:nowrap;}
   .acc-group-row.in .agr-amt{color:var(--green);}
   .acc-group-row.out .agr-amt{color:var(--red);}
@@ -194,7 +196,7 @@
     padding:9px 10px 9px 26px;font-size:12.5px;border-bottom:1px solid var(--border);
   }
   .acc-item-row .ai-vendor{color:var(--ink);font-weight:500;overflow-wrap:anywhere;}
-  .acc-item-row .ai-desc{color:var(--sub);overflow-wrap:anywhere;}
+  .acc-item-row .ai-desc{color:var(--sub);overflow-wrap:anywhere;padding-left:2em;}
   .acc-item-row .ai-amt{text-align:right;font-family:'Space Grotesk',sans-serif;font-weight:600;white-space:nowrap;}
   .acc-item-row.in .ai-amt{color:var(--green);}
   .acc-item-row.out .ai-amt{color:var(--red);}
@@ -223,16 +225,19 @@
     .baseline .amt{font-size:17px;}
     .company-pair-row,.company-pair-row.two-col{grid-template-columns:1fr;}
     .company-card{padding:14px 16px;}
+    .acct-table{font-size:10.5px;}
+    .acct-table th{font-size:10px;}
+    .acct-table td:first-child{font-size:9.5px;}
+    .acct-table th:first-child,.acct-table td:first-child{width:28%;}
+    .acct-table th:nth-child(2),.acct-table td:nth-child(2){width:17%;}
+    .acct-table th:nth-child(3),.acct-table td:nth-child(3),
+    .acct-table th:nth-child(4),.acct-table td:nth-child(4){width:19%;}
+    .acct-table th:nth-child(5),.acct-table td:nth-child(5){width:17%;}
     .section-title{font-size:13px;}
     .acc-colhead,.acc-group-row,.acc-item-row{grid-template-columns:minmax(0,24%) minmax(0,1fr) minmax(78px,auto);gap:5px;font-size:11.5px;}
     .acc-group-row .agr-amt,.acc-item-row .ai-amt{font-size:12px;}
     .acc-item-row{padding:8px 6px 8px 16px;}
     .acc-group-row{padding:9px 6px;}
-    .acct-table-wrap{overflow-x:visible;}
-    .acct-table{min-width:0;font-size:9px;}
-    .acct-table th,.acct-table td{padding:4px 2px;}
-    .acct-table th:first-child,.acct-table td:first-child{font-size:8.5px;padding-right:2px;width:21%;}
-    .acct-table th:nth-child(2),.acct-table td:nth-child(2){padding-left:0;width:19%;}
   }
   @media (max-width:420px){
     .title{font-size:19px;}
@@ -240,8 +245,18 @@
     .acc-colhead,.acc-group-row,.acc-item-row{grid-template-columns:minmax(0,25%) minmax(0,1fr) minmax(72px,auto);gap:4px;font-size:11px;}
     .acc-group-row .agr-amt,.acc-item-row .ai-amt{font-size:11px;}
     .company-card{padding:12px 12px;}
-    .acct-table{font-size:8.5px;}
-    .acct-table th:first-child,.acct-table td:first-child{font-size:8px;}
+  }
+  @media (max-width:360px){
+    body{padding-left:8px;padding-right:8px;}
+    .company-card{padding:10px 10px;}
+    .acct-table{font-size:9.5px;}
+    .acct-table th{font-size:9px;}
+    .acct-table td:first-child{font-size:8.5px;}
+    .acct-table th:first-child,.acct-table td:first-child{width:27%;padding-left:1px;}
+    .acct-table th:nth-child(2),.acct-table td:nth-child(2){width:17%;padding-right:0;}
+    .acct-table th:nth-child(3),.acct-table td:nth-child(3),
+    .acct-table th:nth-child(4),.acct-table td:nth-child(4){width:19%;padding-right:0;}
+    .acct-table th:nth-child(5),.acct-table td:nth-child(5){width:17%;padding-right:0;}
   }
 </style>
 </head>
@@ -269,11 +284,8 @@
     <div class="kpi cnt"><div class="label">지급상세 건수</div><div class="value" id="kpiCnt">-</div></div>
   </div>
 
-  <div class="section-title">㈜필름 자금현황<span class="st-sub">법인 + 개인</span></div>
-  <div class="company-pair-row" id="grid-film"></div>
-
-  <div class="section-title">카페공명 자금현황<span class="st-sub">5개 지점</span></div>
-  <div class="company-pair-row two-col" id="grid-gm"></div>
+  <div class="section-title">사업장별 현황<span class="st-sub">7개 사업장</span></div>
+  <div class="company-pair-row two-col" id="grid-all"></div>
 
   <div class="section-title">지급상세내역<span class="st-sub" id="detail-date-tag">-</span></div>
   <div class="table-card" id="detail-wrap"></div>
@@ -367,8 +379,7 @@ let openAcctCards = new Set(ALL_ENTITIES.map(e=>e.exp));
 function toggleAcct(key){
   if(openAcctCards.has(key)) openAcctCards.delete(key);
   else openAcctCards.add(key);
-  renderCompanyGrid('grid-film', FILM_GROUP);
-  renderCompanyGrid('grid-gm', GM_GROUP);
+  renderCompanyGrid('grid-all', ALL_ENTITIES);
 }
 
 let footnoteOpen = false;
@@ -406,22 +417,15 @@ function shortAlias(alias){ return ALIAS_SHORT[alias] || alias; }
           <span class="acct-toggle-icon">▼</span>
         </div>
         <div class="acct-table-wrap" style="display:${isOpen?'block':'none'}"><table class="acct-table">
-          <thead><tr><th>계좌</th><th>전일</th><th>입금</th><th>출금</th><th>잔액</th></tr></thead>
+          <thead><tr><th>계좌번호</th><th>전일잔액</th><th>금일입금</th><th>금일출금</th><th>금일잔액</th></tr></thead>
           <tbody>
             ${accounts.map(a=>{
               const d = a.byDate[currentDate];
               const an = (d.bal||0) < 0;
               const isDepositOnly = a.alias === '입금전용';
-              let inCell = '-';
-              if(d.in){
-                if(a.alias === '출금전용' && d.external !== undefined && d.external > 0){
-                  inCell = `${fmtNum(d.transfer)}<span class="acct-alias" style="margin-left:4px;">+외부 ${fmtNum(d.external)}</span>`;
-                } else {
-                  inCell = fmtNum(d.in);
-                }
-              }
+              let inCell = d.in ? fmtNum(d.in) : '-';
               return `<tr>
-                <td>${a.bank}(${a.acct.replace(/-/g,'').slice(-5)}_${shortAlias(a.alias)})</td>
+                <td>${a.bank}(${shortAlias(a.alias)}_${a.acct.replace(/-/g,'').slice(-5)})</td>
                 <td>${fmtNum(d.prev)}</td>
                 <td class="${d.in? 'acct-in':''}">${inCell}</td>
                 <td>${d.out? fmtNum(d.out):'-'}</td>
@@ -520,7 +524,7 @@ function renderDetail(){
           <span class="abh-title">${type}</span>
           <span class="abh-total">${fmt(total)}<span class="abh-cnt">(${cnt}건)</span></span>
         </div>
-        <div class="acc-colhead"><div>거래처</div><div>내용</div><div style="text-align:right;">금액</div></div>
+        <div class="acc-colhead"><div>거래처</div><div style="padding-left:2em;">내용</div><div style="text-align:right;">금액</div></div>
         ${groupsHtml}
         <div class="acc-group-row" style="background:transparent;font-weight:700;border-top:2px solid var(--ink);border-radius:0;cursor:default;">
           <div>총합계</div><div></div>
@@ -547,8 +551,7 @@ function renderDetail(){
 function render(){
   buildTabs();
   renderKPIs();
-  renderCompanyGrid('grid-film', FILM_GROUP);
-  renderCompanyGrid('grid-gm', GM_GROUP);
+  renderCompanyGrid('grid-all', ALL_ENTITIES);
   renderDetail();
 }
 
